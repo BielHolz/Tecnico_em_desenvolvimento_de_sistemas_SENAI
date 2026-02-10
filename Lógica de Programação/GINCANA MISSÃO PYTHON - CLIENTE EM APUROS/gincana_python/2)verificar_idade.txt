@@ -1,0 +1,8 @@
+idade = int(input("digite sua idade: "))
+
+if idade >= 18:
+    print(f"você é maior de idade, Seja bem vindo ao site!!! :)")
+else:
+    print(f"você tem {idade} anos, você não pode adentrar o site, por favor se RETIRE!!! Obrigado e tenha um ótimo dia.")
+
+

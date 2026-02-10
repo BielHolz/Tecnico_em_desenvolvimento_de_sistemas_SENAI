@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Place Hotel</title>
+  <link rel="icon" href="/iniciando no html/imagens/icone.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="menu-container">
+    <div class="Menu">
+      <button class="dropbtn">Menu</button>
+      <div class="Menu-content">
+        <a href="visitante.html">Listagem de cadastro</a>
+      </div>  
+    </div>
+  </div>
+
+  <h1> Registro de visitantes</h1>
+  <h4>Controle de Acesso e Visitantes</h4>
+
+  <div class="container">
+    <form id="formCadastro">
+      <input type="text" placeholder="Nome" id="nome" required />
+      <input type="text" placeholder="CPF" id="cpf" maxlength="14" required />
+      <input type="email" placeholder="E-mail" id="email" required />
+      <input type="text" placeholder="CEP" id="cep" maxlength="9" required />
+      <input type="number" placeholder="Idade" id="idade" required />
+      <input type="tel" placeholder="Telefone" id="telefone" maxlength="15" required />
+
+      <label for="andar">MENU PARA OS QUARTOS:</label>
+      <select id="andar" class="input-estilizado" required>
+        <option value="">Selecione o Andar</option>
+        <option value="1">1º Andar</option>
+        <option value="2">2º Andar</option>
+        <option value="3">3º Andar</option>
+      </select>
+
+      <select id="quarto" class="input-estilizado" required>
+        <option value="">Selecione o Quarto</option>
+      </select>
+
+      <select id="tipo" class="input-estilizado" required>
+        <option value="">Selecione o Tipo de Quarto</option>
+        <option value="Simples">Quarto Simples (Para solteiro)</option>
+        <option value="Duplo">Quarto Duplo (Para casal)</option>
+        <option value="Familiar">Quarto Familiar (Camas extras ou beliches)</option>
+      </select>
+
+      <button type="submit" class="btn-cadastrar">Cadastrar</button>
+    </form>
+  </div>
+
+  <!-- Mensagem de sucesso -->
+  <div id="mensagem-sucesso" style="display:none; color: lightgreen; font-weight: bold; margin-top: 20px;">
+    ✅ Visitante cadastrado com sucesso!
+  </div>
+
+  <!-- Link para script externo -->
+  <script src="script.js"></script>
+</body>
+</html>

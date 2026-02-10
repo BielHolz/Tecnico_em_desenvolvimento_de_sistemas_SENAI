@@ -1,0 +1,9 @@
+import random
+
+num = random.randint(1,10)
+
+n1 = int(input("escolha um numero de 1 a 10: "))
+if num == n1:
+ print("você acertou!!!")
+else:
+ print("você errou, o numero certo era: ", num,) 

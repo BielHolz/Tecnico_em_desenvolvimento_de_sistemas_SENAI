@@ -1,0 +1,12 @@
+ds = int(input("defina a senha: "))
+print(f"senha definida como {ds}")
+senha = int(input("digite sua senha: "))
+
+if senha == ds:
+    print("Essa é a senha!!! Acesso liberado :)")
+else:
+    print("Você digitou a senha incorreta!!! Os alarmes seráo ativados")
+    for i in range(5, 0, -1):
+        print (f"{i} segundos")
+        break
+    print("alarmes!!!")

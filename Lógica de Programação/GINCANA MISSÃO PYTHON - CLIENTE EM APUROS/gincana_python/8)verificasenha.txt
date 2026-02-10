@@ -1,0 +1,8 @@
+#atividade08
+senha = str (input("Boa noite senhor(a), voce esta criando um login. Qual seria a senha?"))
+#conversao
+if senha == "123senha":
+ print("Acesso permitido para entrar no sistema.")
+else:
+ print("Infelizmente o acesso foi negado,senha incorreta.")
+

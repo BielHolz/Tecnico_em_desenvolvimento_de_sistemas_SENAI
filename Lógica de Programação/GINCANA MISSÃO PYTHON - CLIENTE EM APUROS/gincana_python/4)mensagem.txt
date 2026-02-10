@@ -1,0 +1,3 @@
+nome = str(input("escreva o seu nome: "))
+
+print(f"Boas Vindas! {nome}")

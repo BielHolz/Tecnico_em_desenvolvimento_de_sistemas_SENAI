@@ -1,0 +1,25 @@
+Algoritmo "informacoes_do_curso"
+
+Var
+   nome, idade, curso, professor, turno, cidade, estado: caractere
+
+
+Inicio
+      Escreva ("informe seu nome completo:")
+      Leia (nome)
+      Escreva("informe sua idade:")
+      Leia (idade)
+      Escreva("informe qual curso que esta fazendo:")
+      Leia(curso)
+      Escreva("informe qual e o nome do prefessor:")
+      Leia(professor)
+      Escreva("informe qual turno esta fazendo:")
+      Leia(turno)
+      Escreva("informe qual cidade esta fazendo o curso:")
+      Leia(cidade)
+      Escreva("informe qual estado esta fazendo o curso:")
+      Leia(estado)
+      Escreva("o(A) ", nome, " tem ", idade, " anos , esta cursando no curso de" , curso , " com o professor responsável pela turma", professor, "no turno de ", turno, " na escola de ", cidade , ".")
+
+
+Fimalgoritmo

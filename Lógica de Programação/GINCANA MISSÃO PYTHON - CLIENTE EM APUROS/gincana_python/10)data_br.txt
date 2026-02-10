@@ -1,0 +1,15 @@
+from datetime import datetime
+
+
+def converter_data(dm):
+  di = datetime.strptime(dm, "%Y-%m-%d")
+  db = di.strftime("%d/%m/%Y")
+
+  return db
+
+dd = input("Digite a data no formato AAAA-MM-DD: ")
+try:
+   df = converter_data(dd)
+   print(f"data formatada: {df}")
+except ValueError:
+   print("Formato de data inválido. Por favor, use AAAA-MM-DD.")

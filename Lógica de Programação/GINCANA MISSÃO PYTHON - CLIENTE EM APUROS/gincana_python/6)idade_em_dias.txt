@@ -1,0 +1,11 @@
+print("digite sua idade:")
+a = int(input("Quantos anos você tem?: "))
+m = int(input("quantos meses você tem?: "))
+d = int(input("Quantos dias você tem?: "))
+td = int
+
+td = a * 365
+td = td + m * 30
+td = td + d
+
+print(f"sua idade transformada em dias é de: {td} dias")

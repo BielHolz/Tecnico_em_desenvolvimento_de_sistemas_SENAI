@@ -1,0 +1,20 @@
+a = float(input("digite um número: "))
+c = str(input("digite o tipo da conta (+,-,x ou /): "))
+b = float(input("digite o outro número: "))
+d = float
+
+if c == "+":
+    d = a + b
+    print(f"O resultado da conte é: {a} + {b} = {d}")
+
+if c == "-":
+    d = a - b
+    print(f"O resultado da conte é: {a} - {b} = {d}")
+
+if c == "x":
+    d = a * b
+    print(f"O resultado da conte é: {a} x {b} = {d}")
+
+if c == "/":
+    d = a / b
+    print(f"O resultado da conte é: {a} ÷ {b} = {d}")

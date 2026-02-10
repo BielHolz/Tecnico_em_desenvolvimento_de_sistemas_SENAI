@@ -1,0 +1,14 @@
+n = float(input("escreva a sua nota da prova: "))
+
+
+if n >= 7:
+    print(f"você tirou {n}, você está aprovado")
+elif n < 7 and n >= 5:
+    print(f"você tirou {n}, você está de recuperação")
+else:
+    print(f"você tirou {n}, infelizmente você está reprovado")
+
+
+
+
+

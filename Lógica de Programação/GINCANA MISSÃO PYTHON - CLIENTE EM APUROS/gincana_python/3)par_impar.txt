@@ -1,0 +1,14 @@
+a = int(input("escreva um número inteiro: "))
+
+if a % 2 == 0:
+    print(f"o número {a} é um número par")
+else:
+    print(f"o número {a} é um número impar")
+
+
+
+
+
+
+
+
