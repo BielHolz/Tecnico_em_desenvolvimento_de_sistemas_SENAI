@@ -1,0 +1,86 @@
+CREATE DATABASE hospital;
+
+USE hospital;
+
+CREATE TABLE paciente(
+    idpaciente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    cpf VARCHAR(20) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    endereco VARCHAR(100)
+);
+
+CREATE TABLE medico(
+    idmedico INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    especialidade VARCHAR(50),
+    CRM VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE consulta(
+    idconsulta INT PRIMARY KEY AUTO_INCREMENT,
+    paciente_ID INT,
+    medico_ID INT,
+    data DATE NOT NULL,
+    diagnostico VARCHAR(100),
+    motivo VARCHAR(100),
+    FOREIGN KEY (paciente_ID) REFERENCES paciente(idpaciente),
+    FOREIGN KEY (medico_ID) REFERENCES medico(idmedico)
+);
+
+CREATE TABLE medicamento(
+    idmedicamento INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    dosagem VARCHAR(30),
+    indicacao VARCHAR(100),
+    idconsulta INT,
+    FOREIGN KEY (idconsulta) REFERENCES consulta(idconsulta)
+);
+
+CREATE TABLE internacao(
+    idinternacao INT PRIMARY KEY AUTO_INCREMENT,
+    paciente_ID INT,
+    medico_responsavel_ID INT,
+    data_entrada DATE NOT NULL,
+    data_saida DATE,
+    quarto VARCHAR(10),
+    FOREIGN KEY (paciente_ID) REFERENCES paciente(idpaciente),
+    FOREIGN KEY (medico_responsavel_ID) REFERENCES medico(idmedico)
+);
+
+
+ALTER TABLE paciente ADD telefone VARCHAR(20);
+ALTER TABLE medico ADD email VARCHAR(50);
+ALTER TABLE medicamento ADD fabricante VARCHAR(50);
+
+
+SELECT * FROM paciente;
+SELECT * FROM medico;
+SELECT * FROM consulta;
+
+
+
+DROP TABLE internacao;
+DROP TABLE medicamento;
+DROP TABLE consulta;
+
+
+TRUNCATE TABLE paciente;
+TRUNCATE TABLE medico;
+TRUNCATE TABLE consulta;
+
+
+
+INSERT INTO paciente (nome, cpf, , telefone) VALUES ('Gabriel Souza', '12345678900', '11999999999');
+INSERT INTO paciente (nome, cpf,  telefone) VALUES ('Ana Clara', '98765432100', '11888888888');
+INSERT INTO medico (nome, especialidade, CRM,) VALUES ('Dr. João Mendes', 'Cardiologia', 'CRM12345',);
+
+
+UPDATE paciente SET endereco = 'Rua Nova Esperança, 45' WHERE idpaciente = 1;
+UPDATE medico SET especialidade = 'Clínico Geral' WHERE idmedico = 1;
+UPDATE internacao SET data_saida = '2025-10-08' WHERE idinternacao = 2;
+
+-- Exclusões (DELETE)
+DELETE FROM medicamento WHERE idmedicamento = 2;
+DELETE FROM consulta WHERE idconsulta = 1;
+DELETE FROM paciente WHERE idpaciente = 2;

@@ -1,0 +1,63 @@
+CREATE DATABASE biblioteca;
+
+USE biblioteca;
+
+CREATE TABLE livro(
+idlivro INT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(30) NOT NULL,
+editora VARCHAR(30) NOT NULL,
+ano DATE NOT NULL,
+genero VARCHAR(30) NOT NULL,
+idautor INT,
+FOREIGN KEY(idautor) REFERENCES autor(idautor)
+);
+
+CREATE TABLE autor(
+idautor INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(30) NOT NULL,
+nacionalidade VARCHAR(30),
+datanacimento DATE
+);
+
+CREATE TABLE leitor(
+idleitor INT PRIMARY KEY AUTO_INCREMENT,
+endereco VARCHAR(30) NOT NULL,
+telefone VARCHAR(15) NOT NULL,
+email VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE emprestimo(
+idemprestimo INT PRIMARY KEY AUTO_INCREMENT,
+dataemprestimo DATE NOT NULL,
+datadevolucao DATE NOT NULL
+);
+
+ALTER TABLE leitor ADD datanacimento DATE ;
+ALTER TABLE autor ADD biografia VARCHAR (100);
+ALTER TABLE livro ADD resumo VARCHAR (100);
+
+SELECT * FROM leitor;
+SELECT * FROM emprestimo;
+SELECT * FROM autor;
+
+ DROP TABLE autor;
+ DROP TABLE leitor;
+ DROP TABLE emprestimo;
+ 
+TRUNCATE TABLE leitor;
+TRUNCATE TABLE autor;
+TRUNCATE TABLE emprestimo;
+  
+INSERT INTO livro (descricao, preco) VALUES('Mortal Kombat', 50);
+INSERT INTO livro (descricao, preco) VALUES('Crepusculo', 56);
+INSERT INTO livro (descricao, preco) VALUES('Ayrton senna', 106);
+
+
+UPDATE livro SET descricao = 'Mortal Kombat' WHERE idlivro = 3;
+UPDATE livro SET descricao = 'Mortal Kombat', preco = 50 WHERE idlivro = 3;
+UPDATE livro SET descricao = 'Mortal Kombate', preco = 50;
+
+DELETE FROM Livro;
+DELETE FROM autor;
+DELETE FROM emprestimo;
+

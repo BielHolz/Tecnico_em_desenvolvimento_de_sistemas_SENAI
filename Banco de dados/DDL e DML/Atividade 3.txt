@@ -1,0 +1,91 @@
+CREATE DATABASE empresa;
+
+USE empresa;
+
+CREATE TABLE fornecedor(
+    idfornecedor INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    CNPJ VARCHAR(20) NOT NULL,
+    contato VARCHAR(50)
+);
+
+CREATE TABLE produto(
+    idproduto INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    estoque INT NOT NULL,
+    idfornecedor INT,
+    FOREIGN KEY (idfornecedor) REFERENCES fornecedor(idfornecedor)
+);
+
+CREATE TABLE cliente(
+    idcliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    endereco VARCHAR(80),
+    email VARCHAR(50)
+);
+
+CREATE TABLE pedido(
+    idpedido INT PRIMARY KEY AUTO_INCREMENT,
+    idcliente INT,
+    data_pedido DATE NOT NULL,
+    status VARCHAR(30),
+    FOREIGN KEY (idcliente) REFERENCES cliente(idcliente)
+);
+
+CREATE TABLE item_pedido(
+    iditem INT PRIMARY KEY AUTO_INCREMENT,
+    idpedido INT,
+    idproduto INT,
+    quantidade INT NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (idpedido) REFERENCES pedido(idpedido),
+    FOREIGN KEY (idproduto) REFERENCES produto(idproduto)
+);
+
+CREATE TABLE pagamento(
+    idpagamento INT PRIMARY KEY AUTO_INCREMENT,
+    idpedido INT,
+    data_pagamento DATE NOT NULL,
+    forma_pagamento VARCHAR(30),
+    valor DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (idpedido) REFERENCES pedido(idpedido)
+);
+
+ALTER TABLE cliente ADD telefone VARCHAR(20);
+ALTER TABLE produto ADD descricao VARCHAR(100);
+ALTER TABLE fornecedor ADD endereco VARCHAR(80);
+
+
+SELECT * FROM produto;
+SELECT * FROM cliente;
+SELECT * FROM pedido;
+
+
+DROP TABLE pagamento;
+DROP TABLE produto;
+DROP TABLE pedido;
+
+
+
+TRUNCATE TABLE produto;
+TRUNCATE TABLE cliente;
+TRUNCATE TABLE pedido;
+
+
+
+
+INSERT INTO produto (nome, preco, estoque, ) VALUES ('Notebook', 3500.00, 15 );
+INSERT INTO produto (nome, preco, estoque,) VALUES ('Mouse Gamer', 120.00, 50);
+INSERT INTO produto (nome, preco, estoque, ) VALUES ('Teclado Mecânico', 280.00, 30);
+
+
+
+
+UPDATE produto SET preco = 3600.00 WHERE idproduto = 1;
+UPDATE cliente SET telefone = '11777777777' WHERE idcliente = 2;
+UPDATE pedido SET status = 'Enviado' WHERE idpedido = 1;
+
+DELETE FROM item_pedido WHERE iditem = 3;
+DELETE FROM produto WHERE idproduto = 2;
+DELETE FROM cliente WHERE idcliente = 1;
